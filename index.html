@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="theme-color" content="#3d8bff">
-<title>Fliperama do X: matemática do 9º ano</title>
+<title>Fliperama do X: primeiras contas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -133,6 +133,8 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
 .fg-q b{ display:inline-block; background:var(--pink); color:#fff; border:3px solid var(--ink); border-radius:16px; padding:2px 18px; font-size:clamp(1.5rem, 6.5vw, 2rem); font-weight:800; box-shadow:0 4px 0 var(--ink); text-shadow:0 2px 0 rgba(0,0,0,.2); }
 .fg-q small{ display:block; width:max-content; max-width:94%; margin:8px auto 0; background:var(--card); border:2px solid var(--ink); border-radius:12px; padding:1px 10px; font-weight:700; font-size:.98rem; }
 .fg-q small:empty{ display:none; }
+.fg-dots{ display:block; width:max-content; max-width:94%; margin:6px auto 0; font-size:1.3rem; line-height:1.2; }
+.fg-dots:empty{ display:none; }
 .fg-q small.good{ color:var(--green-d); } .fg-q small.bad{ color:var(--red); }
 .fg-hint{ position:absolute; left:8px; right:8px; bottom:6px; z-index:4; text-align:center; font-weight:700; font-size:.85rem; line-height:1.2; color:var(--soft); pointer-events:none; transition:opacity .4s; }
 .fg-hint.off{ opacity:0; }
@@ -149,6 +151,7 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
 .mc-f{ transform:rotateY(180deg); background:var(--t-blue); font-weight:800; font-size:clamp(1rem, 5.2vw, 1.6rem); line-height:1.05; padding:4px; }
 .mc-f.val{ background:var(--t-yellow); }
 .mc-f.sm{ font-size:clamp(.78rem, 3.6vw, 1.15rem); }
+.mc-f.emo{ white-space:pre-line; font-size:clamp(.95rem, 4.4vw, 1.35rem); line-height:1.15; }
 .mc.done .mc-f{ background:var(--green); color:#fff; }
 .mc.done{ animation:pop .35s; }
 .mc.no .mc-f{ background:var(--red); color:#fff; }
@@ -170,8 +173,8 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
 .rq-card{ flex:1; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; background:var(--t-blue); border:3px solid var(--ink); border-radius:18px; padding:10px; text-align:center; }
 .rq-topic{ font-weight:700; font-size:.95rem; background:var(--card); border:2px solid var(--ink); border-radius:99px; padding:0 12px; }
 .rq-prompt{ font-weight:800; font-size:clamp(1.7rem, min(7.5vw, 6vh), 3rem); line-height:1.1; }
-.rq-prompt.long{ font-size:clamp(1.3rem, 5.6vw, 1.8rem); }
-.rq-fig svg{ width:min(230px, 60vw); height:auto; display:block; max-height:22vh; }
+.rq-prompt.story{ font-size:clamp(1.2rem, 5.2vw, 1.6rem); font-weight:700; line-height:1.3; }
+.rq-emo{ display:grid; grid-template-columns:repeat(5, auto); gap:2px 8px; font-size:clamp(1.4rem, min(6.5vw, 4.5vh), 2.1rem); line-height:1.2; }
 .rq-ask{ font-weight:600; color:var(--soft); font-size:1.05rem; }
 .rq-bolt{ display:flex; align-items:center; gap:6px; }
 .rq-bolt span{ font-size:1.3rem; }
@@ -180,7 +183,7 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
 .rq-opts{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 .opt{
   position:relative; min-height:64px; background:var(--card); border:3px solid var(--ink); border-radius:16px; box-shadow:0 5px 0 var(--ink);
-  font-weight:800; font-size:clamp(1rem, 4.4vw, 1.3rem); line-height:1.1; padding:8px 8px 6px 26px;
+  font-weight:800; font-size:clamp(1.4rem, 6vw, 1.9rem); line-height:1.1; padding:8px 8px 6px 26px;
 }
 .opt:active{ transform:translateY(3px); box-shadow:0 2px 0 var(--ink); }
 .opt i{ position:absolute; left:8px; top:6px; font-style:normal; font-size:.75rem; color:var(--soft); }
@@ -198,10 +201,6 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
 .rc-target{ display:flex; align-items:center; gap:10px; background:var(--t-green); border:3px solid var(--ink); border-radius:18px; padding:6px 20px; }
 .rc-target span{ font-weight:700; color:var(--soft); font-size:1.1rem; }
 .rc-target b{ font-weight:800; font-size:2.6rem; line-height:1.1; }
-.frac{ display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-size:.62em; line-height:1; }
-.frac > span:first-child{ border-bottom:3px solid currentColor; padding:0 4px 2px; }
-.frac > span:last-child{ padding-top:2px; }
-.neg{ font-size:.8em; margin-right:2px; }
 .rc-line{ position:relative; width:100%; flex:1; min-height:120px; }
 .rc-fb{ min-height:3.4em; text-align:center; line-height:1.3; }
 .rc-fb b{ display:block; font-size:1.35rem; font-weight:800; }
@@ -253,7 +252,7 @@ button:focus-visible{ outline:4px solid var(--blue); outline-offset:3px; }
       <svg class="mascot" viewBox="0 0 120 120" aria-hidden="true"><use href="#xis"/></svg>
       <h1 class="logo">Fliperama<br>do X</h1>
     </header>
-    <p class="menu-sub">Quatro jogos de 3 minutos para treinar a matemática do 9º ano. Escolha um, escolha o nível e bata seu recorde!</p>
+    <p class="menu-sub">Quatro jogos de 3 minutos para aprender a contar, somar e tirar brincando. Escolha um jogo, escolha o nível e divirta-se!</p>
     <div class="cards" id="cards"></div>
     <div class="menu-foot"><button type="button" class="pill" id="mute-menu">🔊 Som ligado</button></div>
   </section>
@@ -338,14 +337,6 @@ function rnd(a, b){ return a + Math.floor(Math.random() * (b - a + 1)); }
 function pick(a){ return a[Math.floor(Math.random() * a.length)]; }
 function shuffle(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
 function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
-function fmt(n, d){
-  var s = d == null ? String(Math.round(n * 1e6) / 1e6) : n.toFixed(d);
-  s = s.replace('.', ',');
-  if(s.charAt(0) === '-') s = '\u2212' + s.slice(1);
-  return s;
-}
-var SUP = { '0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻' };
-function sup(n){ return String(n).split('').map(function(c){ return SUP[c] || c; }).join(''); }
 function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
 function store(k, v){ try{ if(v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
 function esc(s){ return String(s).replace(/[&<>]/g, function(c){ return { '&':'&amp;', '<':'&lt;', '>':'&gt;' }[c]; }); }
@@ -400,7 +391,7 @@ function setMuted(m){
 }
 
 /* ---------- ajudantes de questões ---------- */
-function signed(n){ return n < 0 ? '\u2212 ' + Math.abs(n) : '+ ' + n; }
+var FRUITS = ['🍎', '🍓', '🍌', '🐟', '⭐', '🎈', '🐞', '🌸', '🚗', '🐶'];
 function options(answer, cands, fill, count){
   count = count || 3;
   var out = [], seen = {}; seen[answer] = 1;
@@ -409,64 +400,72 @@ function options(answer, cands, fill, count){
   while(out.length < count && guard++ < 80){ var c = fill(); if(!seen[c]){ seen[c] = 1; out.push(c); } }
   return out;
 }
-function group(d){ return d.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
-function gcd(a, b){ return b ? gcd(b, a % b) : a; }
-function poly(b, c){
-  var s = 'x²';
-  if(b) s += (b < 0 ? ' \u2212 ' : ' + ') + (Math.abs(b) === 1 ? '' : Math.abs(b)) + 'x';
-  if(c) s += (c < 0 ? ' \u2212 ' : ' + ') + Math.abs(c);
-  return s + ' = 0';
+// Wrong answers close to the right one are what actually test counting; negatives make no sense at this age.
+function neighbors(n){ return shuffle([n + 1, n - 1, n + 2, n - 2].filter(function(v){ return v >= 0; })).map(String); }
+function nearFill(n, spread){ return function(){ return String(Math.max(0, n + rnd(-spread, spread))); }; }
+function range(a, b){ var out = []; for(var i = a; i <= b; i++) out.push(i); return out; }
+function countFrom(start, steps, dir){ return range(1, steps).map(function(i){ return start + i * dir; }).join(', '); }
+// Two-digit sums and differences stay with "easy" second terms: units or whole tens.
+function bigSum(max){ var a = rnd(10, max - 10), b = Math.random() < .5 ? rnd(1, 9) : rnd(1, Math.floor((max - a) / 10)) * 10; return [a, b]; }
+function bigSub(max){ var a = rnd(20, max), b = Math.random() < .5 ? rnd(1, 9) : rnd(1, Math.floor(a / 10)) * 10; return [a, b]; }
+function sumExpl(a, b){
+  if(b <= 4) return 'Comece no ' + a + ' e conte mais ' + b + ': ' + countFrom(a, b, 1);
+  if(b % 10 === 0 && a >= 10) return 'Some as dezenas: ' + a + ' + ' + b + ' = ' + (a + b);
+  return a + ' + ' + b + ' = ' + (a + b);
+}
+function subExpl(a, b){
+  if(b <= 4) return 'Comece no ' + a + ' e volte ' + b + ': ' + countFrom(a, b, -1);
+  if(b % 10 === 0 && a >= 10) return 'Tire as dezenas: ' + a + ' − ' + b + ' = ' + (a - b);
+  return 'Tirando ' + b + ' de ' + a + ', sobram ' + (a - b);
 }
 
 /* =========================================================
    JOGO 1: FOGUETE DAS CONTAS
    ========================================================= */
+function sumQ(a, b){ return { q:a + ' + ' + b, a:String(a + b), c:neighbors(a + b).concat([String(Math.abs(a - b))]) }; }
+function subQ(a, b){ return { q:a + ' − ' + b, a:String(a - b), c:neighbors(a - b).concat([String(a + b)]) }; }
+// Subtraction shows what is left plus a cross for each one taken away, so the figure matches "tirar".
+function withDots(q, a, b, op){ var e = pick(FRUITS); q.dots = op === '+' ? e.repeat(a) + ' + ' + e.repeat(b) : e.repeat(a - b) + ' ' + '❌'.repeat(b); return q; }
 var FG = [
-  [ // fácil
-    function(){ var n = rnd(2, 12); return { q:n + '²', a:String(n * n), c:[String(n * 2), String(n * n + n), String(n * n - 1), String((n + 1) * (n + 1))] }; },
-    function(){ var n = rnd(2, 12); return { q:'√' + n * n, a:String(n), c:[String(n + 1), String(n - 1), String(n * 2), String(n * n / 2)] }; },
-    function(){ var n = rnd(2, 5); return { q:n + '³', a:String(n * n * n), c:[String(n * 3), String(n * n), String(n * n * n + n)] }; },
-    function(){ var p = pick([10, 25, 50]), N = rnd(2, 10) * 20; return { q:p + '% de ' + N, a:fmt(N * p / 100), c:[fmt(N * p / 10), fmt(N - N * p / 100), fmt(N * p / 100 + 10)] }; },
-    function(){ var k = rnd(2, 5); return { q:'10' + sup(k), a:group('1' + '0'.repeat(k)), c:[group('1' + '0'.repeat(k + 1)), group('1' + '0'.repeat(k - 1)), String(10 * k)] }; }
+  [ // fácil: até 10, com figuras para contar
+    function(){ var a = rnd(1, 9), b = rnd(1, 10 - a); return withDots(sumQ(a, b), a, b, '+'); },
+    function(){ var a = rnd(1, 5), b = rnd(1, 5); return withDots(sumQ(a, b), a, b, '+'); },
+    function(){ var a = rnd(2, 10), b = rnd(1, a); return withDots(subQ(a, b), a, b, '−'); }
   ],
-  [ // médio
-    function(){ var n = rnd(2, 9); return Math.random() < .5 ? { q:'(\u2212' + n + ')²', a:String(n * n), c:[fmt(-n * n), fmt(-2 * n), String(2 * n)] } : { q:'\u2212' + n + '²', a:fmt(-n * n), c:[String(n * n), fmt(-2 * n), String(2 * n)] }; },
-    function(){ var t = pick([['2⁻¹', '0,5', ['\u22122', '2', '0,2']], ['10⁻²', '0,01', ['\u2212100', '0,1', '0,02']], ['4⁻¹', '0,25', ['\u22124', '0,4', '4']], ['5⁻¹', '0,2', ['\u22125', '0,5', '5']], ['2⁻²', '0,25', ['\u22124', '0,5', '4']]]); return { q:t[0], a:t[1], c:t[2] }; },
-    function(){ var n = rnd(11, 20); return { q:'√' + n * n, a:String(n), c:[String(n + 1), String(n - 1), String(Math.round(n * n / 2))] }; },
-    function(){ var p = pick([5, 15, 20, 30, 40, 75]), N = rnd(2, 15) * 20; return { q:p + '% de ' + N, a:fmt(N * p / 100), c:[fmt(N * p / 10), fmt(N - N * p / 100), fmt(N * p / 100 + 5)] }; },
-    function(){ var n = rnd(2, 99); return { q:n + '⁰', a:'1', c:['0', String(n), fmt(-1)] }; },
-    function(){ var k = rnd(4, 9); return { q:'2' + sup(k), a:String(Math.pow(2, k)), c:[String(2 * k), String(Math.pow(2, k - 1)), String(Math.pow(2, k + 1))] }; },
-    function(){ var k = pick([3, 5]); return { q:'(\u22122)' + sup(k), a:fmt(-Math.pow(2, k)), c:[String(Math.pow(2, k)), fmt(-2 * k), String(2 * k)] }; }
+  [ // médio: até 20 e dobro
+    function(){ var a = rnd(3, 15), b = rnd(1, 20 - a); return sumQ(a, b); },
+    function(){ var a = rnd(8, 20), b = rnd(1, Math.min(10, a)); return subQ(a, b); },
+    function(){ var n = rnd(2, 10); return { q:'dobro de ' + n, a:String(2 * n), c:neighbors(2 * n).concat([String(n), String(n + 2)]) }; }
   ],
-  [ // difícil
-    function(){ var t = pick([['√0,25', '0,5'], ['√0,09', '0,3'], ['√0,64', '0,8'], ['√1,21', '1,1'], ['√0,01', '0,1'], ['√0,36', '0,6'], ['√1,44', '1,2']]); var num = parseFloat(t[1].replace(',', '.')); return { q:t[0], a:t[1], c:[fmt(num * 10), t[0].slice(1), fmt(num / 10)] }; },
-    function(){ var p = rnd(1, 4), q; do { q = rnd(2, 7); } while(gcd(p, q) !== 1); return { q:'(' + p + '/' + q + ')²', a:p * p + '/' + q * q, c:[2 * p + '/' + 2 * q, p * p + '/' + q, p + '/' + q * q] }; },
-    function(){ var n = rnd(2, 5); return Math.random() < .5 ? { q:'(\u2212' + n + ')³', a:fmt(-n * n * n), c:[String(n * n * n), fmt(-3 * n), fmt(-n * n)] } : { q:'\u2212(\u2212' + n + ')²', a:fmt(-n * n), c:[String(n * n), fmt(-2 * n), String(2 * n)] }; },
-    function(){ var ab = pick([[2, 2], [2, 3], [2, 4], [3, 3], [4, 2], [3, 2]]), a = ab[0], b = ab[1], m = rnd(2, 5), n = rnd(2, 4); return { q:'(' + a + '×10' + sup(m) + ')·(' + b + '×10' + sup(n) + ')', a:a * b + ' × 10' + sup(m + n), c:[a * b + ' × 10' + sup(m * n), (a + b) + ' × 10' + sup(m + n), a * b + ' × 10' + sup(m + n + 1)] }; },
-    function(){ var n = rnd(2, 6); return Math.random() < .5 ? { q:'(1/' + n + ')⁻²', a:String(n * n), c:['1/' + n * n, fmt(-n * n), String(2 * n)] } : { q:n + '⁻²', a:'1/' + n * n, c:[fmt(-n * n), String(n * n), '1/' + 2 * n] }; },
-    function(){ var k = rnd(2, 9); return { q:'x² = ' + k * k + ' (x>0)', a:'x = ' + k, c:['x = ' + k * k, 'x = ' + (k + 1), 'x = ' + fmt(k * k / 2)] }; }
+  [ // difícil: dezenas até 50 e tabuada do 2, 5 e 10
+    function(){ var ab = bigSum(50); return sumQ(ab[0], ab[1]); },
+    function(){ var ab = bigSub(50); return subQ(ab[0], ab[1]); },
+    function(){ var k = pick([2, 5, 10]), n = rnd(2, 10); return { q:n + ' × ' + k, a:String(n * k), c:[String(k * (n + 1)), String(k * (n - 1)), String(n + k)].concat(neighbors(n * k)) }; }
   ]
 ];
 
 function Foguete(api, stage, L){
   var C = makeCanvas(stage), ctx = C.ctx, lanes = L === 2 ? 4 : 3;
-  stage.insertAdjacentHTML('beforeend', '<div class="fg-q"><b id="fg-q">Prepare-se</b><small id="fg-fb"></small></div><div class="fg-hint">Escolha a pista e toque de novo nela para confirmar</div>');
-  var qEl = $('fg-q'), fbEl = $('fg-fb');
+  stage.insertAdjacentHTML('beforeend', '<div class="fg-q"><b id="fg-q">Prepare-se</b><span class="fg-dots" id="fg-dots"></span><small id="fg-fb"></small></div><div class="fg-hint">Toque na pista com a resposta certa. Toque de novo para ir mais rápido!</div>');
+  var qEl = $('fg-q'), dotsEl = $('fg-dots'), fbEl = $('fg-fb');
   var col = { ink:css('--ink'), card:css('--card'), g:css('--green'), r:css('--red'), y:css('--yellow'), o:css('--orange'), p:css('--pink'), soft:css('--soft'), grid:css('--grid'), font:css('--font') };
   var lane = Math.floor(lanes / 2), rx = null, row = null, raf = 0, nextT = 0, fbT = 0, alive = true, last = performance.now(), wig = 0;
   var stars = []; for(var i = 0; i < 40; i++) stars.push({ x:Math.random(), y:Math.random(), s:1 + Math.random() * 2.5 });
   var parts = [], lastFn = null, hintN = 0;
-  var BASE = [16, 12, 9][L], DROP = [2, 2, 2][L];
+  var BASE = [20, 15, 11][L], DROP = [2, 2, 2][L];
 
   function laneX(i){ return (i + .5) * C.W / lanes; }
   function rocketY(){ return C.H - 86; }
   function next(){
     if(!api.running) return;
     var f; do { f = pick(FG[L]); } while(f === lastFn); lastFn = f;
-    var q = f(), wrong = options(q.a, q.c, function(){ return fmt(parseFloat(String(q.a).replace(',', '.').replace('\u2212', '-')) + rnd(-6, 6) || rnd(1, 50)); }, lanes - 1);
+    var q = f(), wrong = options(q.a, q.c, nearFill(Number(q.a), 5), lanes - 1);
     var vals = shuffle([q.a].concat(wrong));
     qEl.textContent = q.q + ' = ?';
-    row = { vals:vals, ok:vals.indexOf(q.a), y:70, travel:BASE - DROP * api.progress(), done:false, res:-1, a:q.a, q:q.q, t0:performance.now(), boost:false, frac:0 };
+    dotsEl.textContent = q.dots || '';
+    // Answers start just below the question so the counting figures never hide behind them.
+    var anchor = q.dots ? dotsEl : qEl, y0 = 10 + anchor.offsetTop + anchor.offsetHeight + 32;
+    row = { vals:vals, ok:vals.indexOf(q.a), y:y0, y0:y0, travel:BASE - DROP * api.progress(), done:false, res:-1, a:q.a, q:q.q, t0:performance.now(), boost:false, frac:0 };
   }
   function setLane(i){ if(!api.running) return; i = Math.max(0, Math.min(lanes - 1, i)); if(i === lane) confirm(); else { lane = i; sfx.click(); } }
   function confirm(){ if(!api.running || !row || row.done || row.boost) return; row.boost = true; row.frac = Math.max(0, 1 - (performance.now() - row.t0) / (row.travel * 1000)); sfx.whoosh(); }
@@ -500,7 +499,7 @@ function Foguete(api, stage, L){
     rx += (laneX(lane) - rx) * Math.min(1, dt * 16); wig = Math.max(0, wig - dt);
     var ry = rocketY();
     if(row && !row.done && api.running){
-      row.y += (ry - 40 - 70) / row.travel * dt * (row.boost ? 10 : 1);
+      row.y += (ry - 40 - row.y0) / row.travel * dt * (row.boost ? 10 : 1);
       if(row.y >= ry - 40) resolve();
     }
     parts = parts.filter(function(p){ p.x += p.vx * dt; p.y += p.vy * dt; p.life -= dt; return p.life > 0; });
@@ -551,117 +550,92 @@ function Foguete(api, stage, L){
 /* =========================================================
    JOGO 2: EQUAÇÃO RELÂMPAGO
    ========================================================= */
+var STORIES = [
+  { add:true, t:'Você tem {a} {e} e ganha mais {b}.', ask:'Com quantos você fica?' },
+  { add:true, t:'Tem {a} {e} no jardim. Chegam mais {b}.', ask:'Quantos tem agora?' },
+  { add:false, t:'Você tem {a} {e} e dá {b} de presente.', ask:'Com quantos você fica?' },
+  { add:false, t:'Tinha {a} {e} na mesa. {b} sumiram!', ask:'Quantos sobraram?' }
+];
+var STORY_E = ['🎈', '🍪', '🐸', '⭐', '🍓', '🐥', '🧸'];
+function emojiFig(e, n){ var h = ''; for(var i = 0; i < n; i++) h += '<span>' + e + '</span>'; return '<div class="rq-emo">' + h + '</div>'; }
 var GEN = [
-  { min:0, f:function linear(L){
-    var a, x, b, c, ans;
-    if(L === 0){ a = rnd(2, 5); x = rnd(1, 10); b = rnd(1, 20); }
-    else { a = rnd(2, L === 2 ? 12 : 9); x = rnd(-9, 9); b = rnd(1, 20) * (Math.random() < .5 ? -1 : 1); }
-    ans = 'x = ' + fmt(x);
-    if(L === 2 && Math.random() < .5){
-      c = a * (x + b);
-      return { topic:'Equação do 1º grau', prompt:a + '(x ' + signed(b) + ') = ' + fmt(c), ask:'Quanto vale x?', answer:ans,
-        wrong:options(ans, ['x = ' + fmt(-x), 'x = ' + fmt(c / a + b), 'x = ' + fmt(x + 1), 'x = ' + fmt(c - b)], function(){ return 'x = ' + fmt(x + rnd(-5, 5)); }),
-        expl:'Divida por ' + a + ': x ' + signed(b) + ' = ' + fmt(c / a) + ', então x = ' + fmt(x) };
+  { min:0, f:function contar(L){
+    var n = rnd([2, 5, 10][L], [10, 15, 20][L]), e = pick(FRUITS), ans = String(n), fives = Math.floor(n / 5), expl;
+    if(n <= 5) expl = 'Contando de 1 em 1: ' + countFrom(0, n, 1);
+    else expl = 'Cada linha tem 5: ' + countFrom(0, fives, 5) + (n % 5 ? ' e mais ' + n % 5 : '') + '. São ' + n;
+    return { topic:'Contar', prompt:'', fig:emojiFig(e, n), ask:'Quantos ' + e + ' tem aqui?', answer:ans,
+      wrong:options(ans, neighbors(n), nearFill(n, 3)), expl:expl };
+  }},
+  { min:0, f:function somar(L){
+    var a, b;
+    if(L === 0){ a = rnd(1, 9); b = rnd(1, 10 - a); }
+    else if(L === 1){ a = rnd(3, 15); b = rnd(1, 20 - a); }
+    else { var ab = bigSum(99); a = ab[0]; b = ab[1]; }
+    var ans = String(a + b);
+    return { topic:'Somar', prompt:a + ' + ' + b, ask:'Quanto dá?', answer:ans,
+      wrong:options(ans, neighbors(a + b).concat([String(a + b + 10)]), nearFill(a + b, 4)), expl:sumExpl(a, b) };
+  }},
+  { min:0, f:function tirar(L){
+    var a, b;
+    if(L === 0){ a = rnd(2, 10); b = rnd(1, a); }
+    else if(L === 1){ a = rnd(8, 20); b = rnd(1, Math.min(10, a)); }
+    else { var ab = bigSub(99); a = ab[0]; b = ab[1]; }
+    var ans = String(a - b);
+    return { topic:'Tirar', prompt:a + ' − ' + b, ask:'Quanto sobra?', answer:ans,
+      wrong:options(ans, neighbors(a - b).concat([String(a + b)]), nearFill(a - b, 4)), expl:subExpl(a, b) };
+  }},
+  { min:0, f:function maiorMenor(L){
+    var nums, big = Math.random() < .5;
+    if(L === 2){
+      // Same two digits swapped (47 and 74) is the classic place-value trap.
+      var d1 = rnd(1, 9), d2; do { d2 = rnd(1, 9); } while(d2 === d1);
+      nums = [d1 * 10 + d2, d2 * 10 + d1, d1 * 11, d2 * 11];
+    } else {
+      nums = shuffle(range(0, L === 0 ? 20 : 50)).slice(0, 4);
     }
-    c = a * x + b;
-    return { topic:'Equação do 1º grau', prompt:a + 'x ' + signed(b) + ' = ' + fmt(c), ask:'Quanto vale x?', answer:ans,
-      wrong:options(ans, ['x = ' + fmt(-x), 'x = ' + fmt(x + 1), 'x = ' + fmt(x - 1), 'x = ' + fmt(c + b)], function(){ return 'x = ' + fmt(x + rnd(-5, 5)); }),
-      expl:a + 'x = ' + fmt(c - b) + ', então x = ' + fmt(c - b) + ' ÷ ' + a + ' = ' + fmt(x) };
+    var target = big ? Math.max.apply(null, nums) : Math.min.apply(null, nums), ans = String(target);
+    var others = nums.filter(function(n){ return n !== target; }).map(String), expl;
+    if(L === 2) expl = 'Olhe primeiro as dezenas: o ' + target + ' tem ' + Math.floor(target / 10) + (Math.floor(target / 10) === 1 ? ' dezena' : ' dezenas');
+    else expl = 'Contando, o ' + target + (big ? ' vem depois de todos os outros' : ' vem antes de todos os outros');
+    return { topic:big ? 'Maior' : 'Menor', prompt:big ? '🐘' : '🐭', ask:big ? 'Qual é o MAIOR número?' : 'Qual é o MENOR número?', answer:ans,
+      wrong:options(ans, others, nearFill(target, 5)), expl:expl };
   }},
-  { min:0, f:function quadInc(L){
-    var k = rnd(2, [10, 13, 20][L]), ans = 'x = ±' + k, m = L === 2 && Math.random() < .5 ? rnd(2, 5) : 1, P;
-    if(m > 1) P = m + 'x² = ' + m * k * k; else P = (L === 0 || Math.random() < .5) ? 'x² = ' + k * k : 'x² \u2212 ' + k * k + ' = 0';
-    return { topic:'Equação do 2º grau', prompt:P, ask:'Quais são as soluções?', answer:ans,
-      wrong:options(ans, ['x = ' + k, 'x = ±' + fmt(k * k / 2), 'x = ' + k * k, 'x = \u2212' + k], function(){ return 'x = ±' + (k + rnd(1, 3)); }),
-      expl:(m > 1 ? 'Divida por ' + m + ': x² = ' + k * k + '. ' : '') + k + '² = ' + k * k + ' e (\u2212' + k + ')² = ' + k * k + ', por isso são duas soluções' };
+  { min:0, f:function sequencia(L){
+    var step = L === 0 ? 1 : L === 1 ? pick([2, 5, 10]) : pick([2, 3, 5, 10]), down = L === 2 && Math.random() < .4;
+    var start = down ? rnd(4, 10) * step : (L === 0 ? rnd(0, 15) : rnd(0, 5) * step);
+    var dir = down ? -1 : 1, terms = range(0, 3).map(function(i){ return start + dir * i * step; }), last = terms[3], next = last + dir * step;
+    var ans = String(next);
+    return { topic:'Sequência', prompt:terms.join(', ') + ', ?', ask:'Qual número vem depois?', answer:ans,
+      wrong:options(ans, neighbors(next).concat([String(last), String(next + step)]), nearFill(next, 3)),
+      expl:(down ? 'Volta de ' : 'Vai de ') + step + ' em ' + step + ': ' + last + (down ? ' − ' : ' + ') + step + ' = ' + next };
   }},
-  { min:1, f:function produto(L){
-    var a = rnd(1, 9), b = rnd(1, 9), ans = 'x = ' + a + ' ou x = \u2212' + b;
-    return { topic:'Equação do 2º grau', prompt:'(x \u2212 ' + a + ')(x + ' + b + ') = 0', ask:'Quais são as soluções?', answer:ans, long:true,
-      wrong:options(ans, ['x = \u2212' + a + ' ou x = ' + b, 'x = ' + a + ' ou x = ' + b, 'x = \u2212' + a + ' ou x = \u2212' + b], function(){ return 'x = ' + rnd(1, 9) + ' ou x = ' + rnd(1, 9); }),
-      expl:'Produto igual a zero: x \u2212 ' + a + ' = 0 ou x + ' + b + ' = 0' };
+  { min:0, f:function probleminha(L){
+    var st = pick(STORIES), e = pick(STORY_E), max = [10, 20, 30][L], a, b;
+    if(st.add){ a = rnd(1, max - 1); b = rnd(1, Math.min(L === 0 ? 5 : 10, max - a)); }
+    else { a = rnd(3, max); b = rnd(1, Math.min(L === 0 ? 5 : 10, a)); }
+    var r = st.add ? a + b : a - b, ans = String(r);
+    return { topic:'Probleminha', prompt:st.t.replace('{a}', a).replace('{b}', b).replace('{e}', e), story:true, ask:st.ask, answer:ans,
+      wrong:options(ans, neighbors(r).concat([String(st.add ? Math.abs(a - b) : a + b)]), nearFill(r, 3)),
+      expl:st.add ? a + ' + ' + b + ' = ' + r : a + ' − ' + b + ' = ' + r };
   }},
-  { min:1, f:function fatorComum(L){
-    var k = rnd(2, 9), ans = 'x = 0 ou x = ' + k;
-    return { topic:'Equação do 2º grau', prompt:'x² \u2212 ' + k + 'x = 0', ask:'Quais são as soluções?', answer:ans,
-      wrong:options(ans, ['x = 0 ou x = \u2212' + k, 'x = ±' + k, 'x = ' + k, 'x = 1 ou x = ' + k], function(){ return 'x = 0 ou x = ' + (k + rnd(1, 3)); }),
-      expl:'Coloque x em evidência: x(x \u2212 ' + k + ') = 0' };
+  { min:1, f:function dobroMetade(L){
+    var n = rnd(2, L === 2 ? 25 : 10), dobro = Math.random() < .5, r = dobro ? 2 * n : n, ans = String(r);
+    return { topic:dobro ? 'Dobro' : 'Metade', prompt:dobro ? 'O dobro de ' + n : 'A metade de ' + 2 * n, ask:'Quanto é?', answer:ans,
+      wrong:options(ans, neighbors(r).concat([String(dobro ? n : 4 * n)]), nearFill(r, 3)),
+      expl:dobro ? 'Dobro é o número mais ele mesmo: ' + n + ' + ' + n + ' = ' + 2 * n : 'Metade é dividir em 2 partes iguais: ' + n + ' + ' + n + ' = ' + 2 * n };
   }},
-  { min:1, f:function somaProduto(L){
-    var r1 = rnd(1, 6), r2;
-    do { r2 = L === 2 ? rnd(-7, 7) : rnd(1, 7); } while(r2 === r1 || r2 === 0 || r2 === -r1);
-    var lo = Math.min(r1, r2), hi = Math.max(r1, r2), S = r1 + r2, P = r1 * r2;
-    var ans = 'x = ' + fmt(lo) + ' ou x = ' + fmt(hi);
-    return { topic:'Equação do 2º grau', prompt:poly(-S, P), ask:'Quais são as raízes?', answer:ans, long:true,
-      wrong:options(ans, ['x = ' + fmt(-hi) + ' ou x = ' + fmt(-lo), 'x = ' + fmt(lo + 1) + ' ou x = ' + fmt(hi + 1), 'x = 1 ou x = ' + fmt(P), 'x = ' + fmt(lo) + ' ou x = ' + fmt(hi + 2)], function(){ return 'x = ' + rnd(1, 4) + ' ou x = ' + rnd(5, 9); }),
-      expl:'Procure dois números com soma ' + fmt(S) + ' e produto ' + fmt(P) + ': ' + fmt(lo) + ' e ' + fmt(hi) };
-  }},
-  { min:0, f:function pitagoras(L){
-    var base = L === 0 ? pick([[3, 4, 5], [6, 8, 10]]) : pick([[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25]]);
-    var k = base[0] === 3 && L > 0 ? pick([1, 2, 3]) : 1, a = base[0] * k, b = base[1] * k, c = base[2] * k;
-    if(Math.random() < .5){ var t = a; a = b; b = t; }
-    var unk = L === 0 ? 'c' : (L === 2 ? pick(['c', 'a', 'b', 'a']) : pick(['c', 'c', 'a', 'b'])), ans, cands, expl;
-    if(unk === 'c'){ ans = String(c); cands = [String(a + b), String(c + 1), String(c - 2), String(c + 3)]; expl = a + '² + ' + b + '² = ' + (a * a + b * b) + ', e √' + (a * a + b * b) + ' = ' + c; }
-    else {
-      var kn = unk === 'a' ? b : a, un = unk === 'a' ? a : b;
-      ans = String(un); cands = [String(c - kn), String(c + kn), String(un + 1), String(un - 1)];
-      expl = c + '² \u2212 ' + kn + '² = ' + (c * c - kn * kn) + ', e √' + (c * c - kn * kn) + ' = ' + un;
-    }
-    return { topic:'Teorema de Pitágoras', prompt:'', fig:triSvg(a, b, c, unk), ask:'Qual é a medida do lado com "?"', answer:ans,
-      wrong:options(ans, cands, function(){ return String(Number(ans) + rnd(-4, 4)); }), expl:expl };
-  }},
-  { min:0, f:function porcent(L){
-    var p, N, v, ans;
-    if(L === 0 || Math.random() < .45){
-      p = L === 0 ? pick([10, 25, 50]) : L === 2 ? pick([12, 15, 35, 45, 8]) : pick([5, 10, 15, 20, 25, 30, 40, 50, 75]);
-      N = L === 2 ? rnd(1, 9) * 100 : rnd(2, 20) * 20; v = N * p / 100; ans = fmt(v);
-      return { topic:'Porcentagem', prompt:p + '% de ' + N, ask:'Quanto dá?', answer:ans,
-        wrong:options(ans, [fmt(N * p / 10), fmt(v + p), fmt(N - v), fmt(v * 2)], function(){ return fmt(v + rnd(-9, 9)); }),
-        expl:p + '% = ' + p + '/100, então ' + N + ' × ' + p + ' ÷ 100 = ' + ans };
-    }
-    var up = L === 2 && Math.random() < .5;
-    p = L === 2 ? pick([10, 15, 20, 25, 30, 35]) : pick([10, 20, 25, 30, 40, 50]); N = L === 2 ? rnd(1, 9) * 100 : rnd(3, 30) * 20;
-    var d = N * p / 100, pay = up ? N + d : N - d; ans = 'R$ ' + fmt(pay);
-    return { topic:'Porcentagem', prompt:'R$ ' + N + (up ? ' com aumento de ' : ' com ') + p + '%' + (up ? '' : ' de desconto'), long:true, ask:up ? 'Qual é o novo preço?' : 'Quanto vou pagar?', answer:ans,
-      wrong:options(ans, ['R$ ' + fmt(d), 'R$ ' + fmt(up ? N - d : N + d), 'R$ ' + fmt(up ? N + p : N - p)], function(){ return 'R$ ' + fmt(pay + rnd(-3, 3) * 10); }),
-      expl:p + '% de ' + N + ' = ' + fmt(d) + '. Depois, ' + N + (up ? ' + ' : ' \u2212 ') + fmt(d) + ' = ' + fmt(pay) };
-  }},
-  { min:0, f:function potencia(L){
-    var b = rnd(2, L === 0 ? 5 : 7), m = rnd(2, 6), n = rnd(2, 5), t = L === 0 ? 0 : rnd(0, L === 2 ? 3 : 2), P, ans, cands, expl;
-    if(t === 0){ P = b + sup(m) + ' · ' + b + sup(n); ans = b + sup(m + n); cands = [b + sup(m * n), (b * b) + sup(m + n), b + sup(Math.abs(m - n) || 1)]; expl = 'Mesma base na multiplicação: some os expoentes (' + m + ' + ' + n + ')'; }
-    else if(t === 1){ m = n + rnd(1, 5); P = b + sup(m) + ' ÷ ' + b + sup(n); ans = b + sup(m - n); cands = [b + sup(m + n), '1' + sup(m - n), b + sup(m * n)]; expl = 'Mesma base na divisão: subtraia os expoentes (' + m + ' \u2212 ' + n + ')'; }
-    else if(t === 2){ P = '(' + b + sup(m) + ')' + sup(n); ans = b + sup(m * n); cands = [b + sup(m + n), (b * n) + sup(m), b + sup(m * n + 1)]; expl = 'Potência de potência: multiplique os expoentes (' + m + ' × ' + n + ')'; }
-    else { m = n + rnd(1, 4); P = b + sup(n) + ' ÷ ' + b + sup(m); ans = b + sup(n - m); cands = [b + sup(m - n), b + sup(n + m), '1' + sup(m - n)]; expl = 'Subtraia os expoentes: ' + n + ' \u2212 ' + m + ' = ' + (n - m) + ' (expoente negativo)'; }
-    return { topic:'Potências', prompt:P, ask:'Simplificando, fica:', answer:ans,
-      wrong:options(ans, cands, function(){ return b + sup(rnd(2, 20)); }), expl:expl };
-  }},
-  { min:0, f:function cientifica(L){
-    var d; do { d = rnd(11, 98); } while(d % 10 === 0);
-    var m1 = Math.floor(d / 10), m2 = d % 10, e = L === 0 ? rnd(3, 6) : (Math.random() < .5 ? -rnd(2, L === 2 ? 8 : 6) : rnd(3, 8)), num;
-    if(e > 0) num = group('' + m1 + m2 + '0'.repeat(e - 1)); else num = '0,' + '0'.repeat(-e - 1) + m1 + m2;
-    var mant = m1 + ',' + m2, ans = mant + ' × 10' + sup(e);
-    return { topic:'Notação científica', prompt:num, long:num.length > 9, ask:'Em notação científica, fica:', answer:ans,
-      wrong:options(ans, [mant + ' × 10' + sup(e > 0 ? e - 1 : e + 1), '' + m1 + m2 + ' × 10' + sup(e - 1), mant + ' × 10' + sup(-e)], function(){ return mant + ' × 10' + sup(e + rnd(-3, 3)); }),
-      expl:(e > 0 ? 'A vírgula anda ' + e + ' casas para a esquerda' : 'A vírgula anda ' + (-e) + ' casas para a direita') + ', e o número fica entre 1 e 10' };
+  { min:2, f:function tabuada(L){
+    var k = pick([2, 5, 10]), n = rnd(2, 10), r = n * k, ans = String(r);
+    return { topic:'Tabuada', prompt:n + ' × ' + k, ask:'Quanto dá?', answer:ans,
+      wrong:options(ans, [String(r + k), String(r - k), String(n + k)].concat(neighbors(r)), nearFill(r, 4)),
+      expl:n <= 5 ? 'É somar o ' + k + ' ' + n + ' vezes: ' + range(1, n).map(function(){ return k; }).join(' + ') + ' = ' + r : 'Conte de ' + k + ' em ' + k + ', ' + n + ' vezes: chega no ' + r };
   }}
 ];
-function triSvg(a, b, c, unk){
-  var S = Math.min(150 / b, 105 / a), w = b * S, h = a * S, x0 = 44, y0 = 132, hl = css('--pink');
-  function lab(t, x, y, anchor, isU){ return '<text x="' + x + '" y="' + y + '" text-anchor="' + anchor + '" font-size="' + (isU ? 26 : 20) + '" font-weight="800" fill="' + (isU ? hl : 'currentColor') + '">' + t + '</text>'; }
-  var mx = x0 + w / 2, my = y0 - h / 2, nl = Math.sqrt(w * w + h * h), nx = h / nl, ny = -w / nl;
-  return '<svg viewBox="0 0 230 160" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)" font-family="Baloo 2, Trebuchet MS, sans-serif">' +
-    '<polygon points="' + x0 + ',' + y0 + ' ' + (x0 + w) + ',' + y0 + ' ' + x0 + ',' + (y0 - h) + '" fill="var(--card)" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>' +
-    '<path d="M' + x0 + ' ' + (y0 - 14) + 'h14v14" fill="none" stroke="currentColor" stroke-width="3"/>' +
-    lab(unk === 'a' ? '?' : a, x0 - 10, y0 - h / 2 + 7, 'end', unk === 'a') +
-    lab(unk === 'b' ? '?' : b, x0 + w / 2, y0 + 24, 'middle', unk === 'b') +
-    lab(unk === 'c' ? '?' : c, mx + nx * 14, my + ny * 14 + 6, 'start', unk === 'c') +
-    '</svg>';
-}
 
 function Relampago(api, stage, L){
   stage.insertAdjacentHTML('beforeend',
     '<div class="rq">' +
-      '<div class="rq-card"><div class="rq-topic" id="rq-topic">Prepare-se!</div><div class="rq-prompt" id="rq-prompt">x = ?</div><div class="rq-fig" id="rq-fig"></div><div class="rq-ask" id="rq-ask">A primeira conta já vem</div></div>' +
+      '<div class="rq-card"><div class="rq-topic" id="rq-topic">Prepare-se!</div><div class="rq-prompt" id="rq-prompt">🤔</div><div class="rq-fig" id="rq-fig"></div><div class="rq-ask" id="rq-ask">A primeira pergunta já vem</div></div>' +
       '<div class="rq-bolt"><span>⚡</span><div class="rq-bar"><div id="rq-fill"></div></div></div>' +
       '<div class="rq-opts" id="rq-opts"></div>' +
       '<div class="rq-fb" id="rq-fb"></div>' +
@@ -676,7 +650,7 @@ function Relampago(api, stage, L){
     var g; do { g = pick(pool); } while(g === lastFn); lastFn = g;
     q = g.f(L);
     $('rq-topic').textContent = q.topic;
-    var pr = $('rq-prompt'); pr.textContent = q.prompt; pr.className = 'rq-prompt' + (q.long ? ' long' : ''); pr.hidden = !q.prompt;
+    var pr = $('rq-prompt'); pr.textContent = q.prompt; pr.className = 'rq-prompt' + (q.story ? ' story' : ''); pr.hidden = !q.prompt;
     $('rq-fig').innerHTML = q.fig || '';
     $('rq-ask').textContent = q.ask;
     fb.textContent = ''; fb.className = 'rq-fb';
@@ -710,14 +684,14 @@ function Relampago(api, stage, L){
       nextT = setTimeout(next, L === 0 ? 1700 : 1300);
     } else {
       api.bad(pos.x, pos.y);
-      fb.className = 'rq-fb bad'; fb.textContent = 'Resposta: ' + q.answer + '. ' + q.expl;
+      fb.className = 'rq-fb bad'; fb.textContent = 'A resposta era ' + q.answer + '. ' + q.expl;
       nextT = setTimeout(next, 2600);
     }
   }
   function timeout(){
     locked = true; reveal(-1);
     api.bad(stage.clientWidth / 2, 40);
-    fb.className = 'rq-fb bad'; fb.textContent = '⏰ O raio caiu! Resposta: ' + q.answer + '. ' + q.expl;
+    fb.className = 'rq-fb bad'; fb.textContent = '⏰ O raio caiu! A resposta era ' + q.answer + '. ' + q.expl;
     nextT = setTimeout(next, 2600);
   }
   function frame(now){
@@ -743,50 +717,25 @@ function Relampago(api, stage, L){
 /* =========================================================
    JOGO 3: RETA CERTEIRA
    ========================================================= */
-var SPECIAL = [
-  ['π', Math.PI, 'π ≈ 3,14'], ['π/2', Math.PI / 2, 'π ÷ 2 ≈ 1,57'], ['−π', -Math.PI, '−π ≈ −3,14'], ['2π', 2 * Math.PI, '2π ≈ 6,28'],
-  ['2⁻¹', .5, '2⁻¹ = 1/2 = 0,5'], ['4⁻¹', .25, '4⁻¹ = 1/4 = 0,25'], ['2⁻²', .25, '2⁻² = 1/2² = 1/4 = 0,25'], ['5⁻¹', .2, '5⁻¹ = 1/5 = 0,2'],
-  ['(1/2)⁻²', 4, '(1/2)⁻² = 2² = 4'], ['(2/3)⁻¹', 1.5, '(2/3)⁻¹ = 3/2 = 1,5'], ['−2⁻¹', -.5, '−2⁻¹ = −1/2 = −0,5'],
-  ['(1,5)²', 2.25, '1,5 × 1,5 = 2,25'], ['(−1,5)²', 2.25, '(−1,5)² = 2,25 (positivo!)'], ['1,2²', 1.44, '1,2 × 1,2 = 1,44'], ['√2 + 1', Math.SQRT2 + 1, '√2 ≈ 1,41, então √2 + 1 ≈ 2,41'],
-  ['−√2', -Math.SQRT2, '−√2 ≈ −1,41'], ['2,5²', 6.25, '2,5 × 2,5 = 6,25']
+// tick: distance between marks; label: which marks get a number; speed: [start, extra by the end]; tol: [na mosca, muito perto, perto].
+var RETA = [
+  { lo:0, hi:10, tick:1, label:1, speed:[1, .6], tol:[.25, .5, 1] },
+  { lo:0, hi:20, tick:1, label:2, speed:[1.8, 1.2], tol:[.4, .8, 1.5] },
+  { lo:0, hi:100, tick:5, label:10, speed:[10, 7], tol:[2.5, 5, 9] }
 ];
-var SPECIAL_HARD = [
-  ['−√10', -Math.sqrt(10), '3² = 9 e 4² = 16, então −√10 ≈ −3,16'], ['√2 + √3', Math.SQRT2 + Math.sqrt(3), '√2 ≈ 1,41 e √3 ≈ 1,73, soma ≈ 3,15'],
-  ['π − 1', Math.PI - 1, 'π − 1 ≈ 2,14'], ['1/π', 1 / Math.PI, '1 ÷ 3,14 ≈ 0,32'], ['(−2)⁻¹', -.5, '(−2)⁻¹ = 1/(−2) = −0,5'],
-  ['3⁻²', 1 / 9, '3⁻² = 1/9 ≈ 0,11'], ['−(3/2)²', -2.25, '(3/2)² = 9/4 = 2,25, com o sinal de fora: −2,25'], ['2√2', 2 * Math.SQRT2, '2 × 1,41 ≈ 2,83'], ['√0,5', Math.sqrt(.5), '√0,5 ≈ 0,71']
-];
-function fracHtml(p, q){ return (p < 0 ? '<span class="neg">\u2212</span>' : '') + '<span class="frac"><span>' + Math.abs(p) + '</span><span>' + q + '</span></span>'; }
-function sqrtT(maxN){
-  var n; do { n = rnd(2, maxN); } while(Math.sqrt(n) % 1 === 0);
-  var v = Math.sqrt(n), k = Math.floor(v);
-  return { label:'√' + n, html:'√' + n, v:v, expl:k + '² = ' + k * k + ' e ' + (k + 1) + '² = ' + (k + 1) * (k + 1) + ', então √' + n + ' ≈ ' + fmt(v, 2) };
-}
-function fracT(qs, lo, hi){
-  var q = pick(qs), p; do { p = rnd(lo, hi); } while(p === 0 || gcd(Math.abs(p), q) !== 1);
-  return { label:(p < 0 ? '\u2212' : '') + Math.abs(p) + '/' + q, html:fracHtml(p, q), v:p / q, expl:fmt(p) + ' ÷ ' + q + ' ≈ ' + fmt(p / q, 2) };
-}
-function specT(list){ var s = pick(list); return { label:s[0], html:s[0], v:s[1], expl:s[2] }; }
+function numT(n, expl){ return { text:String(n), v:n, expl:expl }; }
 function genTarget(L){
-  var r = Math.random();
-  if(L === 0){
-    if(r < .35) return sqrtT(30);
-    if(r < .7) return fracT([2, 4], 1, 15);
-    if(r < .9){ var dv; do { dv = rnd(1, 30) * .25; } while(dv % 1 === 0); return { label:fmt(dv), html:fmt(dv), v:dv, expl:fmt(dv) + ' fica entre ' + Math.floor(dv) + ' e ' + (Math.floor(dv) + 1) }; }
-    return specT([SPECIAL[0], SPECIAL[4], SPECIAL[11]]);
+  var r = Math.random(), n, a, b;
+  if(L === 0){ n = rnd(1, 9); return numT(n, 'O ' + n + ' fica entre o ' + (n - 1) + ' e o ' + (n + 1)); }
+  if(L === 1){
+    if(r < .5){ n = rnd(1, 19); return numT(n, 'O ' + n + ' fica entre o ' + (n - 1) + ' e o ' + (n + 1)); }
+    a = rnd(2, 12); b = rnd(1, 19 - a);
+    return { text:a + ' + ' + b, v:a + b, expl:a + ' + ' + b + ' = ' + (a + b) };
   }
-  if(L === 2){
-    if(r < .3) return sqrtT(150);
-    if(r < .55) return fracT([3, 5, 6, 7, 8], -20, 20);
-    return specT(r < .75 ? SPECIAL : SPECIAL_HARD);
-  }
-  if(r < .35) return sqrtT(99);
-  if(r < .6) return fracT([2, 3, 4, 5], -12, 12);
-  if(r < .75){
-    var nv = -rnd(2, 19) * .25; if(nv % 1 === 0) nv -= .5;
-    var lo = Math.floor(nv);
-    return { label:fmt(nv), html:fmt(nv), v:nv, expl:fmt(nv) + ' fica entre ' + fmt(lo) + ' e ' + fmt(lo + 1) + ', à esquerda do zero' };
-  }
-  return specT(SPECIAL);
+  if(r < .4){ n = rnd(1, 19) * 5; return numT(n, n % 10 ? 'O ' + n + ' fica bem no meio do ' + (n - 5) + ' e do ' + (n + 5) : 'O ' + n + ' tem ' + n / 10 + ' dezenas'); }
+  if(r < .7){ n = rnd(2, 9); return { text:n + ' dezenas', v:n * 10, expl:n + ' dezenas = ' + n + ' × 10 = ' + n * 10 }; }
+  a = rnd(1, 6) * 10; b = rnd(1, 9 - a / 10) * 10;
+  return { text:a + ' + ' + b, v:a + b, expl:'Some as dezenas: ' + a + ' + ' + b + ' = ' + (a + b) };
 }
 
 function Reta(api, stage, L){
@@ -794,24 +743,22 @@ function Reta(api, stage, L){
     '<div class="rc">' +
       '<div class="rc-target"><span>Pare em</span><b id="rc-val">?</b></div>' +
       '<div class="rc-line" id="rc-line"></div>' +
-      '<div class="rc-fb" id="rc-fb"><b id="rc-res"></b><span id="rc-exp">Toque em Parar! quando o lápis estiver no lugar certo.</span></div>' +
+      '<div class="rc-fb" id="rc-fb"><b id="rc-res"></b><span id="rc-exp">Toque em Parar! quando o lápis chegar no número.</span></div>' +
       '<button type="button" class="btn rc-stop" id="rc-stop">Parar!</button>' +
     '</div>');
   var lineEl = $('rc-line'), C = makeCanvas(lineEl), ctx = C.ctx;
   var col = { ink:css('--ink'), soft:css('--soft'), y:css('--yellow'), g:css('--green'), r:css('--red'), font:css('--font') };
-  var SPAN = L === 2 ? 8 : 6, HALF = L !== 2, TOL = [[.2, .45, .8], [.12, .3, .55], [.1, .25, .45]][L];
-  var SP0 = [.8, 1.1, 1.5][L], SPD = [.4, .7, .9][L];
-  var t = null, s0 = 0, pos = 0, dir = 1, speed = 2, phase = 'idle', shot = 0, grade = null;
+  var R = RETA[L], TOL = R.tol;
+  var t = null, pos = 0, dir = 1, speed = 2, phase = 'idle', shot = 0, grade = null;
   var raf = 0, nextT = 0, alive = true, last = performance.now();
 
   function next(){
     if(!api.running) return;
     t = genTarget(L);
-    s0 = Math.floor(t.v) - rnd(1, SPAN - 2);
-    $('rc-val').innerHTML = t.html;
+    $('rc-val').textContent = t.text;
     $('rc-res').textContent = ''; $('rc-exp').textContent = '';
-    dir = Math.random() < .5 ? 1 : -1; pos = dir > 0 ? s0 : s0 + SPAN;
-    speed = SP0 + SPD * api.progress();
+    dir = Math.random() < .5 ? 1 : -1; pos = dir > 0 ? R.lo : R.hi;
+    speed = R.speed[0] + R.speed[1] * api.progress();
     phase = 'move'; grade = null;
   }
   function stop(){
@@ -823,17 +770,17 @@ function Reta(api, stage, L){
     else if(d <= TOL[2]){ grade = 'm'; res.textContent = '👍 Perto!'; api.good(10, x, y); }
     else { grade = 'b'; res.textContent = '😬 Ficou longe'; api.bad(x, y); }
     res.style.color = grade === 'b' ? col.r : '';
-    $('rc-exp').textContent = t.expl;
+    $('rc-exp').textContent = (grade === 'b' ? 'Você parou perto do ' + Math.round(shot) + '. ' : '') + t.expl;
     nextT = setTimeout(next, grade === 'b' ? 2600 : 1900);
   }
-  function xOf(v){ var pad = 26; return pad + (v - s0) / SPAN * (C.W - 2 * pad); }
+  function xOf(v){ var pad = 26; return pad + (v - R.lo) / (R.hi - R.lo) * (C.W - 2 * pad); }
   function frame(now){
     if(!alive) return;
     var dt = Math.min(.05, (now - last) / 1000); last = now;
     if(phase === 'move' && api.running){
       pos += dir * speed * dt;
-      if(pos > s0 + SPAN){ pos = s0 + SPAN; dir = -1; }
-      if(pos < s0){ pos = s0; dir = 1; }
+      if(pos > R.hi){ pos = R.hi; dir = -1; }
+      if(pos < R.lo){ pos = R.lo; dir = 1; }
     }
     draw();
     raf = requestAnimationFrame(frame);
@@ -846,11 +793,10 @@ function Reta(api, stage, L){
     ctx.beginPath(); ctx.moveTo(W - 10, y); ctx.lineTo(W - 20, y - 7); ctx.moveTo(W - 10, y); ctx.lineTo(W - 20, y + 7); ctx.stroke();
     if(!t) return;
     ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-    for(var i = 0; i <= SPAN * 2; i++){
-      var v = s0 + i / 2, x = xOf(v), major = i % 2 === 0;
-      if(!major && !HALF) continue;
+    for(var v = R.lo; v <= R.hi; v += R.tick){
+      var x = xOf(v), major = v % R.label === 0;
       ctx.lineWidth = major ? 3 : 2; ctx.strokeStyle = col.ink; ctx.beginPath(); ctx.moveTo(x, y - (major ? 12 : 6)); ctx.lineTo(x, y + (major ? 12 : 6)); ctx.stroke();
-      if(major){ ctx.font = '800 ' + (v === 0 ? 22 : (SPAN > 6 ? 16 : 19)) + 'px ' + col.font; ctx.fillStyle = v === 0 ? col.ink : col.soft; ctx.fillText(fmt(v), x, y + 16); }
+      if(major){ ctx.font = '800 ' + (R.hi > 20 ? 14 : 18) + 'px ' + col.font; ctx.fillStyle = v === 0 ? col.ink : col.soft; ctx.fillText(String(v), x, y + 16); }
     }
     if(phase === 'show'){
       var tx = xOf(t.v), sx = xOf(shot);
@@ -860,7 +806,7 @@ function Reta(api, stage, L){
       ctx.beginPath(); ctx.moveTo(tx, y); ctx.lineTo(tx, y - 46); ctx.stroke();
       ctx.fillStyle = col.g; ctx.beginPath(); ctx.moveTo(tx, y - 46); ctx.lineTo(tx + 26, y - 38); ctx.lineTo(tx, y - 30); ctx.closePath(); ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.arc(tx, y, 7, 0, Math.PI * 2); ctx.fillStyle = col.g; ctx.fill(); ctx.stroke();
-      ctx.font = '800 16px ' + col.font; ctx.fillStyle = col.ink; ctx.textBaseline = 'bottom'; ctx.fillText(t.label, tx, y - 50);
+      ctx.font = '800 16px ' + col.font; ctx.fillStyle = col.ink; ctx.textBaseline = 'bottom'; ctx.fillText(t.text, tx, y - 50);
     }
     pencil(xOf(phase === 'show' ? shot : pos), y);
   }
@@ -888,31 +834,36 @@ function Reta(api, stage, L){
 /* =========================================================
    JOGO 4: PARES IGUAIS
    ========================================================= */
-var PAIRS = [
-  [['2³', '8'], ['3²', '9'], ['√49', '7'], ['5²', '25'], ['√100', '10'], ['10²', '100'], ['50%', '1/2'], ['25%', '1/4'], ['4²', '16'], ['√36', '6'],
-   ['10% de 50', '5'], ['√4', '2'], ['1³', '1'], ['20% de 100', '20'], ['3³', '27'], ['6²', '36'], ['√144', '12'], ['2⁴', '16'], ['√9', '3'], ['√64', '8']],
-  [['2⁻¹', '0,5'], ['(−3)²', '9'], ['−3²', '−9'], ['3/4', '0,75'], ['√169', '13'], ['3,2 × 10³', '3.200'], ['40%', '2/5'], ['2⁵', '32'], ['−2³', '−8'], ['(−2)⁴', '16'],
-   ['7⁰', '1'], ['10⁻¹', '0,1'], ['5 × 10⁻²', '0,05'], ['15% de 200', '30'], ['√2 · √2', '2'], ['20%', '1/5'], ['(1/2)²', '1/4'], ['2³ · 2²', '32'], ['(3²)²', '81'], ['√(9 · 16)', '12']],
-  [['(x − 3)(x + 3)', 'x² − 9'], ['(x + 1)²', 'x² + 2x + 1'], ['√12', '2√3'], ['√50', '5√2'], ['√0,09', '0,3'], ['10⁻³', '0,001'], ['(2/3)²', '4/9'], ['x² = 25', 'x = ±5'],
-   ['1,5 × 10⁻²', '0,015'], ['(1/3)⁻²', '9'], ['x(x − 4)', 'x² − 4x'], ['2⁰ + 2⁻¹', '1,5'], ['(−1)¹⁰¹', '−1'], ['catetos 6 e 8', 'hipotenusa 10'], ['0,333...', '1/3'],
-   ['4,5 × 10⁴', '45.000'], ['√18', '3√2'], ['(a + b)²', 'a² + 2ab + b²'], ['x² − 6x + 9', '(x − 3)²'], ['√(0,16)', '0,4']]
-];
+// Emoji cards break into rows of 3 so a quantity can be read at a glance.
+function emojiRows(e, n){ var rows = []; for(var i = 0; i < n; i += 3) rows.push(e.repeat(Math.min(3, n - i))); return rows.join('\n'); }
+function exprFor(r, L){
+  var kinds = r >= 2 ? ['+', '−'] : ['−'];
+  if(L === 2){ if(r % 2 === 0) kinds.push('dobro'); if(r % 5 === 0 || r % 2 === 0) kinds.push('×'); }
+  var kind = pick(kinds), a;
+  if(kind === '+'){ a = rnd(1, r - 1); return a + ' + ' + (r - a); }
+  if(kind === 'dobro') return 'dobro de ' + r / 2;
+  if(kind === '×'){ var k = r % 5 === 0 ? 5 : 2; return r / k + ' × ' + k; }
+  a = rnd(1, L === 1 ? 5 : 9); return (r + a) + ' − ' + a;
+}
+// Every pair gets a different result, so no card can match two others.
+function pairsFor(L, n){
+  if(L === 0) return shuffle(range(1, 9)).slice(0, n).map(function(k, i){ return [emojiRows(FRUITS[i], k), String(k), true]; });
+  return shuffle(range(1, L === 1 ? 10 : 20)).slice(0, n).map(function(r){ return [exprFor(r, L), String(r)]; });
+}
 function Pares(api, stage, L){
-  var NP = [6, 8, 10][L], COLS = L === 0 ? 3 : 4, PREV = [6000, 4500, 3500][L];
+  var NP = [6, 8, 10][L], COLS = L === 0 ? 3 : 4, PREV = [7000, 6000, 5000][L];
   stage.insertAdjacentHTML('beforeend', '<div class="mm"><div class="mm-top" id="mm-top">Memorize as cartas!</div><div class="mm-grid" id="mm-grid" style="--cols:' + COLS + '"></div></div>');
   var grid = $('mm-grid'), top = $('mm-top'), cards = [], first = null, lock = true, left = 0, round = 0, timers = [], alive = true;
   function later(fn, ms){ var id = setTimeout(fn, ms); timers.push(id); return id; }
 
   function deal(){
     round++;
-    var pool = shuffle(PAIRS[L]), used = {}, chosen = [];
-    pool.forEach(function(p){ if(chosen.length < NP && !used[p[0]] && !used[p[1]]){ used[p[0]] = used[p[1]] = 1; chosen.push(p); } });
     var list = [];
-    chosen.forEach(function(p, i){ list.push({ t:p[0], k:i, val:false }); list.push({ t:p[1], k:i, val:true }); });
+    pairsFor(L, NP).forEach(function(p, i){ list.push({ t:p[0], k:i, val:false, emo:!!p[2] }); list.push({ t:p[1], k:i, val:true }); });
     list = shuffle(list); cards = []; grid.innerHTML = ''; left = NP; first = null; lock = true;
     list.forEach(function(c){
       var b = document.createElement('button'); b.type = 'button'; b.className = 'mc up';
-      b.innerHTML = '<div class="mc-in"><div class="mc-b">?</div><div class="mc-f' + (c.val ? ' val' : '') + (c.t.length > 6 ? ' sm' : '') + '">' + esc(c.t) + '</div></div>';
+      b.innerHTML = '<div class="mc-in"><div class="mc-b">?</div><div class="mc-f' + (c.val ? ' val' : '') + (c.emo ? ' emo' : c.t.length > 6 ? ' sm' : '') + '">' + esc(c.t) + '</div></div>';
       b.setAttribute('aria-label', c.t);
       c.el = b; b.addEventListener('click', function(){ flip(c); });
       grid.appendChild(b); cards.push(c);
@@ -920,7 +871,7 @@ function Pares(api, stage, L){
     top.textContent = round > 1 ? 'Rodada ' + round + ': memorize!' : 'Memorize as cartas!';
     later(function(){
       cards.forEach(function(c){ c.el.classList.remove('up'); });
-      top.textContent = 'Junte cada conta (azul) com seu resultado (amarelo)';
+      top.textContent = L === 0 ? 'Junte as figuras (azul) com o número (amarelo)' : 'Junte cada conta (azul) com o resultado (amarelo)';
       lock = false;
     }, PREV);
   }
@@ -955,42 +906,42 @@ function Pares(api, stage, L){
 var LEVELS = ['Fácil', 'Médio', 'Difícil'];
 var GAMES = [
   { id:'foguete', title:'Foguete das Contas', glyph:'🚀', emo:true, c:'var(--pink)', tc:'var(--t-pink)', make:Foguete,
-    desc:'Pilote o foguete até a pista com o resultado certo.',
-    chips:['Potências', 'Raízes', 'Porcentagem'],
-    concept:'Potências, raízes e porcentagem',
-    steps:['A conta aparece no topo e os resultados descem pelas pistas.', 'Faça a conta com calma (pode usar papel e lápis) e toque na pista certa. No computador, use as setas ← →.', 'Já tem certeza? Toque de novo na mesma pista (ou aperte espaço) para o foguete ir na hora e ganhar mais pontos.', 'Bateu no resultado errado? Perde um coração.'],
-    lv:['3 pistas, contas como 7², √81 e 25% de 80, tudo bem devagar.', '3 pistas, com sinais negativos, expoente zero e expoente negativo.', '4 pistas e mais rápido: raízes de decimais, frações ao quadrado e notação científica.'],
-    learn:'Atenção ao sinal: (−3)² = 9, mas −3² = −9. E expoente negativo vira fração: 2⁻¹ = 1/2.',
+    desc:'Leve o foguete até a pista com a resposta certa.',
+    chips:['Somar', 'Tirar', 'Dobro'],
+    concept:'Somar e tirar',
+    steps:['A conta aparece lá em cima. As respostas descem pelas pistas.', 'Toque na pista com a resposta certa. Pode contar nos dedos! No computador, use as setas ← →.', 'Tem certeza? Toque de novo na mesma pista e o foguete vai na hora. Ganha mais pontos!', 'Bateu na resposta errada? Perde um coração.'],
+    lv:['Contas até 10, com figurinhas para ajudar a contar.', 'Contas até 20 e o dobro de um número.', '4 pistas, contas com dezenas até 50 e tabuada do 2, do 5 e do 10.'],
+    learn:'Para somar, comece no número maior e conte para frente: 7 + 3 é 8, 9, 10!',
     medals:[200, 450, 750] },
-  { id:'relampago', title:'Equação Relâmpago', glyph:'x=?', small:true, c:'var(--blue)', tc:'var(--t-blue)', make:Relampago,
-    desc:'Escolha a resposta certa antes que o raio caia.',
-    chips:['Equações', 'Pitágoras', '%', 'Notação científica'],
-    concept:'Equações, Pitágoras, porcentagem e potências',
-    steps:['Leia a conta e escolha a resposta certa entre 4 opções. Pode usar papel e lápis!', 'Você tem bastante tempo por pergunta, mas quem responde antes ganha mais pontos. No computador, use as teclas 1 a 4.', 'Errou ou o raio acabou? Perde um coração.'],
-    lv:['Mais tempo por pergunta. Equações simples, x² = 49, Pitágoras e porcentagens redondas.', 'Entram fatoração, soma e produto e números negativos.', 'Pouco tempo, parênteses, raízes negativas, aumentos e expoentes negativos.'],
-    learn:'Em x² = 49 existem duas soluções: 7 e −7. No triângulo retângulo, a² + b² = c², onde c é o lado maior (hipotenusa).',
+  { id:'relampago', title:'Conta Relâmpago', glyph:'1+2', small:true, c:'var(--blue)', tc:'var(--t-blue)', make:Relampago,
+    desc:'Responda antes que o raio caia.',
+    chips:['Contar', 'Maior e menor', 'Sequências', 'Probleminhas'],
+    concept:'Contar, comparar e resolver probleminhas',
+    steps:['Leia a pergunta e escolha a resposta certa entre 4 opções.', 'Tem bastante tempo, mas quem responde antes ganha mais pontos. No computador, use as teclas 1 a 4.', 'Errou ou o raio acabou? Perde um coração, e o jogo mostra como pensar.'],
+    lv:['Muito tempo por pergunta. Contar até 10, somas e números até 20.', 'Contar de 5 em 5, contas até 20, dobro e metade.', 'Menos tempo, números até 100, tabuada e sequências que voltam.'],
+    learn:'Para saber qual número é maior, olhe primeiro as dezenas: 74 tem 7 dezenas e 47 tem só 4.',
     medals:[150, 330, 550] },
-  { id:'reta', title:'Reta Certeira', glyph:'π', c:'var(--green)', tc:'var(--t-green)', make:Reta,
-    desc:'Pare o lápis no ponto certo da reta numérica.',
-    chips:['Números reais', 'Frações', 'Estimativa'],
-    concept:'Números reais na reta numérica',
-    steps:['Veja o número e pense onde ele fica na reta.', 'O lápis anda sozinho. Toque em Parar! (ou aperte espaço) na hora certa.', 'Quanto mais perto, mais pontos. Muito longe custa um coração.'],
-    lv:['Lápis devagar, marcas de meio em meio e mais margem de erro.', 'Lápis mais rápido, frações e números negativos.', 'Reta maior, sem marcas de meio, lápis veloz e números como −√10 e 1/π.'],
-    learn:'Para achar √50, pense nos quadrados vizinhos: 7² = 49 e 8² = 64. Então √50 é um pouco mais que 7.',
+  { id:'reta', title:'Reta Certeira', glyph:'123', small:true, c:'var(--green)', tc:'var(--t-green)', make:Reta,
+    desc:'Pare o lápis no número certo da reta.',
+    chips:['Ordem dos números', 'Dezenas', 'Estimativa'],
+    concept:'A ordem dos números na reta',
+    steps:['Veja o número e pense onde ele fica na reta.', 'O lápis anda sozinho. Toque em Parar! (ou aperte espaço) quando ele chegar lá.', 'Quanto mais perto, mais pontos. Muito longe custa um coração.'],
+    lv:['Reta de 0 a 10 com todos os números e lápis devagar.', 'Reta de 0 a 20 e algumas somas para achar o número.', 'Reta de 0 a 100, contando de 10 em 10.'],
+    learn:'Na reta, os números crescem da esquerda para a direita: quanto mais para a direita, maior o número.',
     medals:[250, 550, 900] },
   { id:'pares', title:'Pares Iguais', glyph:'=', c:'var(--orange)', tc:'var(--t-yellow)', make:Pares, noLives:true,
     desc:'Jogo da memória: junte cada conta com o seu resultado.',
-    chips:['Equivalências', 'Frações', 'Produtos notáveis'],
-    concept:'Expressões equivalentes',
-    steps:['As cartas aparecem viradas por alguns segundos: memorize!', 'Vire duas cartas: uma conta (azul) e um resultado (amarelo) que valem o mesmo.', 'Limpou a mesa? Ganha bônus e vem outra rodada. Aqui não tem coração, só o relógio.'],
-    lv:['6 pares com potências, raízes e porcentagens simples.', '8 pares com negativos, frações, decimais e notação científica.', '10 pares com produtos notáveis, raízes simplificadas e equações.'],
-    learn:'Expressões diferentes podem valer o mesmo: (x + 3)(x − 3) = x² − 9 e √12 = 2√3.',
+    chips:['Quantidades', 'Somas', 'Dobro'],
+    concept:'Contas que valem o mesmo número',
+    steps:['As cartas aparecem viradas por alguns segundos: memorize!', 'Vire duas cartas: uma azul e uma amarela que valem o mesmo.', 'Limpou a mesa? Ganha bônus e vem outra rodada. Aqui não tem coração, só o relógio.'],
+    lv:['6 pares: figuras para contar e o número certo.', '8 pares com somas e subtrações até 10.', '10 pares com contas até 20, dobro e tabuada.'],
+    learn:'Contas diferentes podem dar o mesmo número: 2 + 3, 4 + 1 e 6 − 1 são todas 5!',
     medals:[150, 320, 520] }
 ];
 var MEDAL_SCALE = [.8, 1, 1.1];
 
-var cur = null, inst = null, run = null, level = parseInt(store('fx-lvl') || '1', 10);
-if(!(level >= 0 && level <= 2)) level = 1;
+var cur = null, inst = null, run = null, level = parseInt(store('fx-lvl') || '0', 10);
+if(!(level >= 0 && level <= 2)) level = 0;
 var api = {
   get running(){ return !!(run && run.running); },
   progress:function(){ return run && run.t0 ? Math.min(1, (performance.now() - run.t0) / DUR) : 0; },
@@ -1120,10 +1071,10 @@ function showEnd(reason){
   $('end-game').textContent = g.title + ', nível ' + LEVELS[L].toLowerCase();
   $('final').textContent = s;
   var medal, rank, nextMsg = '';
-  if(s >= m[2]){ medal = '🥇'; rank = L < 2 ? 'Craque! Que tal subir de nível?' : 'Craque da matemática!'; }
+  if(s >= m[2]){ medal = '🥇'; rank = L < 2 ? 'Craque! Que tal subir de nível?' : 'Gênio da matemática!'; }
   else if(s >= m[1]){ medal = '🥈'; rank = 'Mandou muito bem!'; nextMsg = 'Faltam ' + (m[2] - s) + ' pontos para o ouro.'; }
   else if(s >= m[0]){ medal = '🥉'; rank = 'Bom começo!'; nextMsg = 'Faltam ' + (m[1] - s) + ' pontos para a prata.'; }
-  else { medal = '✏️'; rank = 'Bora treinar mais um pouco!'; nextMsg = 'Faça ' + m[0] + ' pontos para ganhar o bronze.'; }
+  else { medal = '⭐'; rank = 'Muito bem por tentar! Vamos de novo?'; nextMsg = 'Faça ' + m[0] + ' pontos para ganhar o bronze.'; }
   $('medal').textContent = medal; $('rank').textContent = rank;
   $('stats').innerHTML = '<span>✅ ' + run.hits + (run.hits === 1 ? ' acerto' : ' acertos') + '</span><span>❌ ' + run.miss + (run.miss === 1 ? ' erro' : ' erros') + '</span><span>🔥 Sequência: ' + run.best + '</span>';
   var old = parseInt(store(recKey(g, L)) || '0', 10), recEl = $('record');
